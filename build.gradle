@@ -21,10 +21,19 @@ configurations {
 }
 
 repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/jueltter/commons-models")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR") ?: (findProperty("gpr.user") ?: "")
+            password = System.getenv("GITHUB_TOKEN") ?: (findProperty("gpr.key") ?: "")
+        }
+    }
     mavenCentral()
 }
 
 dependencies {
+    implementation 'ec.dev.samagua:commons-models:1.0-SNAPSHOT'
     implementation 'org.springframework.boot:spring-boot-h2console'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
