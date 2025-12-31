@@ -16,7 +16,7 @@ public class Catalog {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
     @Column(name = "code")
-    private Long code;
+    private String code;
 
     @Column(name = "name")
     private String name;
@@ -28,7 +28,7 @@ public class Catalog {
     private String parameter;
 
     @ManyToOne
-    @JoinColumn(name = "parent", referencedColumnName = "id")
+    @JoinColumn(name = "parent", referencedColumnName = "code")
     private Catalog parent;
 
     @Column(name = "audit_user")

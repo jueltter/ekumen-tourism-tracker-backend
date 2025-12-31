@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "experience_review_media")
+@Table(name = "process_media")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +21,7 @@ public class ProcessMedia {
     @Column(name = "process_code")
     private String processCode;
 
-    @JoinColumn(name = "process_type", referencedColumnName = "catalog_code")
+    @JoinColumn(name = "process_type", referencedColumnName = "code")
     @ManyToOne
     private Catalog processType;
 

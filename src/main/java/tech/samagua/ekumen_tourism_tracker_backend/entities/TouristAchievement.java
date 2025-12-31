@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "turist_achievement")
+@Table(name = "tourist_achievement")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
