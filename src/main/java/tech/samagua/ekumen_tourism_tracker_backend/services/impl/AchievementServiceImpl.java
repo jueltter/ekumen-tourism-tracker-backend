@@ -7,6 +7,7 @@ import tech.samagua.ekumen_tourism_tracker_backend.repositories.impl.Achievement
 import tech.samagua.ekumen_tourism_tracker_backend.services.AchievementService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,5 +28,10 @@ public class AchievementServiceImpl implements AchievementService {
     @Override
     public List<Achievement> findByAdministrativeDivisionId(long administrativeDivisionId) {
         return achievementRepository.findByAdministrativeDivisionId(administrativeDivisionId);
+    }
+
+    @Override
+    public Optional<Achievement> findById(Long id) {
+        return achievementRepository.findById(id);
     }
 }

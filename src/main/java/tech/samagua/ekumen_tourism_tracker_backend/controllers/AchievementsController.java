@@ -34,4 +34,16 @@ public class AchievementsController {
         }
     }
 
+    @GetMapping("/achievements/{id}")
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<ControllerResult<AchievementDto>> findById(@PathVariable Long id) {
+        var entityOpt = achievementService.findById(id);
+        if (entityOpt.isPresent()) {
+            var dto = achievementDtoMapper.entityToDto(entityOpt.get());
+            return ResponseEntity.ok(ControllerResult.getSuccessResult(dto));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
