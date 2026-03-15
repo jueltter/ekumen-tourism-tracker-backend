@@ -1,36 +1,10 @@
 server:
   port: 8081
-spring:
-  threads:
-    virtual:
-      enabled: true
-  jackson:
-    default-property-inclusion: non_null
-    serialization:
-      indent-output: false
-  datasource:
-    url: jdbc:h2:mem:ekumen-tourism-tracker-backend-database;Mode=MySQL
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
-    defer-datasource-initialization: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        web-allow-others: true
-eureka:
-  instance:
-    prefer-ip-address: true
-    hostname: ekumen-tourism-tracker-backend
 
+eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://ekumen-tourism-tracker-eureka-server:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
 
 #logging:
 #  level:
