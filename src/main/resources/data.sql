@@ -3,8 +3,8 @@ insert into catalog (code, name, description, parameter, parent, audit_user)
 values ('019b7679-ab4c-739e-b2d2-5aa276cab79a', 'Processes', 'Processes', null, null, 'SYSTEM');
 
 insert into catalog (code, name, description, parameter, parent, audit_user)
-values ('019b7678-85c4-7222-8dbd-24ec1d24c529', 'Process 1', 'Description for Process 1', null, '019b7679-ab4c-739e-b2d2-5aa276cab79a', 'SYSTEM'),
-       ('019b7687-aa33-7c1f-bc72-620cab6188e8', 'Process 2', 'Description for Process 2', null, '019b7679-ab4c-739e-b2d2-5aa276cab79a', 'SYSTEM');
+values ('019b7678-85c4-7222-8dbd-24ec1d24c529', 'Tourism Experience Media', 'Tourism Experience Media', null, '019b7679-ab4c-739e-b2d2-5aa276cab79a', 'SYSTEM'),
+       ('019b7687-aa33-7c1f-bc72-620cab6188e8', 'Experience Review Media', 'Experience Review Media', null, '019b7679-ab4c-739e-b2d2-5aa276cab79a', 'SYSTEM');
 
 -- Insert Country: Ecuador
 INSERT INTO administrative_division (id, name, description, parent, audit_user)
