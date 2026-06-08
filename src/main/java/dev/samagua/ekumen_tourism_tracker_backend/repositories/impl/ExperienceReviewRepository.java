@@ -2,7 +2,6 @@ package dev.samagua.ekumen_tourism_tracker_backend.repositories.impl;
 
 import dev.samagua.ekumen_tourism_tracker_backend.entities.ExperienceReview;
 import dev.samagua.ekumen_tourism_tracker_backend.repositories.ExperienceReviewJpaRepository;
-import dev.samagua.ekumen_tourism_tracker_backend.repositories.TourismExperienceJpaRepository;
 import ec.dev.samagua.commons_models.controllers_exceptions.RepositoryException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -30,6 +29,14 @@ public class ExperienceReviewRepository {
             return repository.findById(id);
         } catch (Exception ex) {
             throw RepositoryException.getReadException(ex);
+        }
+    }
+
+    public ExperienceReview save(ExperienceReview experienceReview) {
+        try {
+            return repository.save(experienceReview);
+        } catch (Exception ex) {
+            throw RepositoryException.getCreateException(ex);
         }
     }
 

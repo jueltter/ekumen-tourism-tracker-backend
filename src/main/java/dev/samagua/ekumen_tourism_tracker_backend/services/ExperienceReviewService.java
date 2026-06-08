@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface ExperienceReviewService {
     List<ExperienceReview> findAllByTouristId(Long touristId);
     Optional<ExperienceReview> findById(Long id);
+    ExperienceReview save(ExperienceReview experienceReview);
 }

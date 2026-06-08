@@ -23,4 +23,12 @@ public class ProcessMediaRepository {
         }
     }
 
+    public ProcessMedia save(ProcessMedia processMedia) {
+        try {
+            return repository.save(processMedia);
+        } catch (Exception ex) {
+            throw RepositoryException.getCreateException(ex);
+        }
+    }
+
 }

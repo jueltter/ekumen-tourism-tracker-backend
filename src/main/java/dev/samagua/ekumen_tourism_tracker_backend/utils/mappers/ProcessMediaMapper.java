@@ -1,8 +1,6 @@
 package dev.samagua.ekumen_tourism_tracker_backend.utils.mappers;
 
-import dev.samagua.ekumen_tourism_tracker_backend.dtos.TourismExperienceDto;
 import dev.samagua.ekumen_tourism_tracker_backend.entities.ProcessMedia;
-import dev.samagua.ekumen_tourism_tracker_backend.entities.TourismExperience;
 import dev.samagua.ekumen_tourism_tracker_backend.models.ExperienceReviewMedia;
 import dev.samagua.ekumen_tourism_tracker_backend.models.TourismExperienceMedia;
 import org.mapstruct.Mapper;
@@ -16,5 +14,9 @@ public interface ProcessMediaMapper {
 
     @Mapping(target = "experienceReview", source = "processCode")
     ExperienceReviewMedia toExperienceReviewMedia(ProcessMedia processMedia);
+
+    @Mapping(target = "processCode", source = "experienceReview")
+    //@Mapping(target = "processType.code", constant = Constants.PROCESS_TYPE_EXPERIENCE_REVIEW_MEDIA)
+    ProcessMedia fromExperienceReviewMedia(ExperienceReviewMedia experienceReviewMedia);
 
 }
