@@ -13,6 +13,6 @@ eureka:
 #        web: DEBUG
 logging:
   level:
-    tech:
+    dev:
       samagua:
         ekumen_tourism_tracker_backend: DEBUG

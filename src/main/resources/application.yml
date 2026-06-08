@@ -40,6 +40,6 @@ eureka:
 
 logging:
   level:
-    tech:
+    dev:
       samagua:
         ekumen_tourism_tracker_backend: WARNING
