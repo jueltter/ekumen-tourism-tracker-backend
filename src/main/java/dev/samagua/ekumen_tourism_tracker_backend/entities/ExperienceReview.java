@@ -1,10 +1,14 @@
 package dev.samagua.ekumen_tourism_tracker_backend.entities;
 
+import dev.samagua.ekumen_tourism_tracker_backend.models.ExperienceReviewMedia;
+import dev.samagua.ekumen_tourism_tracker_backend.models.TourismExperienceMedia;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "experience_review")
@@ -38,6 +42,7 @@ public class ExperienceReview {
     @Column(name = "audit_user")
     private String auditUser;
 
-
+    @Transient
+    private List<ExperienceReviewMedia> mediaList;
 
 }
