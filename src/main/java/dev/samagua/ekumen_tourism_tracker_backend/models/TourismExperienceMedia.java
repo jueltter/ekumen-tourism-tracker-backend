@@ -17,4 +17,5 @@ public class TourismExperienceMedia {
     private String fileName;
     private String filePath;
     private String mimeType;
+    private Long tourismExperience;
 }

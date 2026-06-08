@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface ProcessMediaMapper {
 
+    @Mapping(target = "tourismExperience", source = "processCode")
     TourismExperienceMedia toTourismExperienceMedia(ProcessMedia processMedia);
 
     @Mapping(target = "experienceReview", source = "processCode")

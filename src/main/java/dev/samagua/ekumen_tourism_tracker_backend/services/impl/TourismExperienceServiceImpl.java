@@ -20,9 +20,23 @@ public class TourismExperienceServiceImpl implements TourismExperienceService {
     private final ProcessMediaRepository processMediaRepository;
     private final ProcessMediaMapper processMediaMapper;
 
+    private TourismExperience setMediaList(TourismExperience tourismExperience) {
+        var processMediaList = processMediaRepository.findByProcessCodeAndProcessTypeCode(
+                tourismExperience.getId().toString(),
+                Constants.PROCESS_TYPE_TOURISM_EXPERIENCE_MEDIA);
+
+        var mediaList = processMediaList.stream()
+                .map(processMediaMapper::toTourismExperienceMedia)
+                .toList();
+
+        tourismExperience.setMediaList(mediaList);
+        return tourismExperience;
+    }
+
     @Override
     public List<TourismExperience> findAll() {
-        return tourismExperienceRepository.findAll();
+
+        return tourismExperienceRepository.findAll().stream().peek(this::setMediaList).toList();
     }
 
 
@@ -35,17 +49,7 @@ public class TourismExperienceServiceImpl implements TourismExperienceService {
 
         var tourismExperience = tourismExperienceOpt.get();
 
-        var processMediaList = processMediaRepository.findByProcessCodeAndProcessTypeCode(
-                tourismExperience.getId().toString(),
-                Constants.PROCESS_TYPE_TOURISM_EXPERIENCE_MEDIA);
-
-        var mediaList = processMediaList.stream()
-                .map(processMediaMapper::toTourismExperienceMedia)
-                .toList();
-
-        tourismExperience.setMediaList(mediaList);
-
-        return tourismExperienceRepository.findById(id);
+        return Optional.of(this.setMediaList(tourismExperience));
     }
 
 }
