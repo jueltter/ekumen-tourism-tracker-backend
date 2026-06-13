@@ -6,6 +6,7 @@ import dev.samagua.ekumen_tourism_tracker_backend.utils.mappers.ExperienceReview
 import ec.dev.samagua.commons_models.controllers_models.ControllerResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +51,10 @@ public class ExperienceReviewsController {
         return ResponseEntity.ok(ControllerResult.getSuccessResult(savedExperienceReviewDto));
     }
 
-
+    @PutMapping("/experience-reviews")
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<ControllerResult<ExperienceReviewDto>> update(@RequestBody ExperienceReviewDto experienceReviewDto) {
+        throw new NotImplementedException("Update operation is not implemented yet");
+    }
 
 }
